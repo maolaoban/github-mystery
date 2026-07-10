@@ -1,0 +1,45 @@
+.footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #30363d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 14px;
+  border-radius: 30px;
+  border: 1px solid #30363d;
+}
+
+.badge strong {
+  color: #f0f6fc;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hint kbd {
+  background: #21262d;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #30363d;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+  }
+}

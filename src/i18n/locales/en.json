@@ -1,0 +1,38 @@
+{
+  "header": {
+    "title": "GitHub",
+    "randomButton": "Random User"
+  },
+  "token": {
+    "label": "Token",
+    "placeholder": "Enter GitHub Personal Access Token (optional, can increase rate limit)",
+    "generateLink": "Generate Token"
+  },
+  "filter": {
+    "all": "All",
+    "language": "Language",
+    "minStars": "Min Stars",
+    "minFollowers": "Min Followers"
+  },
+  "error": {
+    "title": "No matching users found",
+    "retry": "Try Again"
+  },
+  "user": {
+    "repos": "Repos",
+    "followers": "Followers",
+    "joined": "Joined",
+    "noBio": "No bio available",
+    "viewProfile": "View {{username}}'s profile"
+  },
+  "repoList": {
+    "title": "Public Repositories",
+    "showing": "showing {{count}}",
+    "noDescription": "No description available"
+  },
+  "footer": {
+    "badge": "Data from GitHub API",
+    "press": "Press",
+    "toRefresh": "to Refresh"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "header": {
+    "title": "GitHub",
+    "randomButton": "随机用户"
+  },
+  "token": {
+    "label": "Token",
+    "placeholder": "输入 GitHub Personal Access Token（可选，可提升速率限制）",
+    "generateLink": "生成 Token"
+  },
+  "filter": {
+    "all": "全部",
+    "language": "语言",
+    "minStars": "最少 Star",
+    "minFollowers": "最少关注者"
+  },
+  "error": {
+    "title": "没有找到匹配的用户",
+    "retry": "再试一次"
+  },
+  "user": {
+    "repos": "仓库",
+    "followers": "关注者",
+    "joined": "加入",
+    "noBio": "没有个人简介",
+    "viewProfile": "查看 {{username}} 的主页"
+  },
+  "repoList": {
+    "title": "公开仓库",
+    "showing": "显示 {{count}} 个",
+    "noDescription": "没有描述"
+  },
+  "footer": {
+    "badge": "数据来自 GitHub API",
+    "press": "按",
+    "toRefresh": "刷新"
+  }
+}

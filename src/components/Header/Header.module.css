@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  font-size: 26px;
+  text-align: center;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f0f6fc;
+  letter-spacing: -0.3px;
+}
+
+.title span {
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.randomBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #238636;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 60px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.randomBtn:hover:not(:disabled) {
+  background: #2ea043;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(35, 134, 54, 0.3);
+}
+
+.randomBtn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.randomBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.randomBtn i {
+  font-size: 16px;
+}
+
+.randomBtn.spinning i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

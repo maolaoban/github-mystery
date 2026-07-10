@@ -1,0 +1,110 @@
+.repoListContainer {
+  margin-top: 16px;
+}
+
+.repoListTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repoListTitle i {
+  color: #8b949e;
+}
+
+.repoCountLabel {
+  font-weight: 400;
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.repoList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repoItem {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #30363d;
+  border-radius: 16px;
+  padding: 14px 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.repoItem:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #58a6ff;
+}
+
+.repoItemHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.repoItemName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.repoItemName:hover {
+  text-decoration: underline;
+}
+
+.repoItemStats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #8b949e;
+  flex-wrap: wrap;
+}
+
+.repoItemStats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repoItemStats i {
+  font-size: 13px;
+}
+
+.repoItemLang {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #c9d1d9;
+}
+
+.repoItemLang i {
+  font-size: 14px;
+}
+
+.repoItemDesc {
+  font-size: 14px;
+  color: #8b949e;
+  margin-top: 4px;
+  word-break: break-word;
+}
+
+.repoItemDesc.empty {
+  font-style: italic;
+  color: #6e7681;
+}
+
+@media (max-width: 640px) {
+  .repoItemHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
