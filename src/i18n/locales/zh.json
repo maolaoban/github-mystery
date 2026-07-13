@@ -3,6 +3,17 @@
     "title": "GitHub",
     "randomButton": "随机用户"
   },
+  "skeleton": {
+    "loading": [
+      "正在探索 GitHub 的奥秘...",
+      "寻找神秘开发者中...",
+      "代码正在苏醒...",
+      "连接到宇宙另一端...",
+      "解析星际代码...",
+      "唤醒沉睡的仓库...",
+      "正在解码程序员的秘密..."
+    ]
+  },
   "token": {
     "label": "Token",
     "placeholder": "输入 GitHub Personal Access Token（可选，可提升速率限制）",
@@ -34,5 +45,13 @@
     "badge": "数据来自 GitHub API",
     "press": "按",
     "toRefresh": "刷新"
+  },
+  "power": {
+    "rookie": "代码小白",
+    "apprentice": "编程学徒",
+    "artisan": "代码工匠",
+    "guru": "开源达人",
+    "master": "技术大佬",
+    "legend": "代码传说"
   }
 }

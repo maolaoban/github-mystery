@@ -2,11 +2,9 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { AppState, Filters } from '../types/github';
 import {
-  searchUsers,
+  getRandomUser,
   fetchUserDetails,
   fetchUserRepos,
-  buildSearchQuery,
-  shuffleArray,
 } from '../services/github';
 
 const defaultFilters: Filters = {
@@ -39,19 +37,7 @@ export const useStore = create<AppState>()(
         set({ loading: true, error: null, user: null, repos: [] });
 
         try {
-          const query = buildSearchQuery(
-            filters.language,
-            filters.minFollowers
-          );
-
-          const items = await searchUsers(query, token);
-
-          if (items.length === 0) {
-            throw new Error('No matching users found');
-          }
-
-          const shuffled = shuffleArray(items);
-          const selectedItem = shuffled[0];
+          const selectedItem = await getRandomUser(token, filters);
 
           const userDetail = await fetchUserDetails(selectedItem.login, token);
           const repos = await fetchUserRepos(selectedItem.login, token, 10);

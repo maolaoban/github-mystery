@@ -27,16 +27,49 @@ async function fetchWithAuth(url: string, token?: string): Promise<Response> {
   return resp;
 }
 
-export async function searchUsers(query: string, token?: string): Promise<GitHubUser[]> {
-  const url = `${GITHUB_API_BASE}/search/users?q=${encodeURIComponent(query)}&per_page=30&sort=repositories`;
-  const resp = await fetchWithAuth(url, token);
-  const data = await resp.json();
+function generateRandomQuery(): string {
+  const letters = 'abcdefghijklmnopqrstuvwxyz';
+  const len = Math.random() > 0.5 ? 2 : 3;
+  let query = '';
+  for (let i = 0; i < len; i++) {
+    query += letters[Math.floor(Math.random() * letters.length)];
+  }
+  return query;
+}
 
-  if (!data.items || data.items.length === 0) {
-    throw new Error('No matching users found');
+export async function getRandomUser(token?: string, filters?: { language: string; minFollowers?: number }): Promise<GitHubUser> {
+  const randomQuery = generateRandomQuery();
+  const parts = [randomQuery, 'type:user', 'repos:>=1'];
+  if (filters?.language) parts.push(`language:${filters.language}`);
+  if (filters?.minFollowers && filters.minFollowers > 0) parts.push(`followers:>=${filters.minFollowers}`);
+  const queryStr = parts.join(' ');
+  const baseUrl = `${GITHUB_API_BASE}/search/users?q=${encodeURIComponent(queryStr)}`;
+
+  const firstResp = await fetchWithAuth(`${baseUrl}&per_page=1`, token);
+  const firstData = await firstResp.json();
+
+  if (!firstData.items || firstData.total_count === 0) {
+    return getRandomUser(token);
   }
 
-  return data.items;
+  const totalCount = firstData.total_count;
+  const backupUser = firstData.items[0];
+
+  const maxPage = Math.min(Math.floor(totalCount / 30) + 1, 34);
+  const randomPage = Math.floor(Math.random() * maxPage) + 1;
+
+  const sorts = ['repositories', 'followers', 'joined', 'desc', 'asc'];
+  const sort = sorts[Math.floor(Math.random() * sorts.length)];
+
+  const secondResp = await fetchWithAuth(`${baseUrl}&per_page=30&sort=${sort}&page=${randomPage}`, token);
+  const secondData = await secondResp.json();
+
+  if (secondData.items && secondData.items.length > 0) {
+    const randomIndex = Math.floor(Math.random() * secondData.items.length);
+    return secondData.items[randomIndex];
+  }
+
+  return backupUser;
 }
 
 export async function fetchUserDetails(username: string, token?: string): Promise<GitHubUser> {
@@ -49,31 +82,4 @@ export async function fetchUserRepos(username: string, token?: string, limit = 1
   const url = `${GITHUB_API_BASE}/users/${username}/repos?per_page=${limit}&sort=pushed&direction=desc`;
   const resp = await fetchWithAuth(url, token);
   return await resp.json();
-}
-
-export function buildSearchQuery(language: string, minFollowers?: number): string {
-  const parts = ['type:user'];
-
-  if (language) {
-    parts.push(`language:${language}`);
-  }
-
-  if (minFollowers && minFollowers > 0) {
-    parts.push(`followers:>=${minFollowers}`);
-  }
-
-  if (parts.length === 1) {
-    parts.push('repos:>=1');
-  }
-
-  return parts.join(' ');
-}
-
-export function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
 }

@@ -86,6 +86,16 @@
   color: #f0f6fc;
 }
 
+.powerBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 8px;
+}
+
 @media (max-width: 640px) {
   .userProfile {
     flex-direction: column;

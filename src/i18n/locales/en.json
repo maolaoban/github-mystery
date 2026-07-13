@@ -3,6 +3,17 @@
     "title": "GitHub",
     "randomButton": "Random User"
   },
+  "skeleton": {
+    "loading": [
+      "Exploring GitHub mysteries...",
+      "Hunting for mysterious developers...",
+      "Code is awakening...",
+      "Connecting to the other side of the universe...",
+      "Parsing interstellar code...",
+      "Awakening dormant repositories...",
+      "Decoding programmers' secrets..."
+    ]
+  },
   "token": {
     "label": "Token",
     "placeholder": "Enter GitHub Personal Access Token (optional, can increase rate limit)",
@@ -34,5 +45,13 @@
     "badge": "Data from GitHub API",
     "press": "Press",
     "toRefresh": "to Refresh"
+  },
+  "power": {
+    "rookie": "Code Rookie",
+    "apprentice": "Code Apprentice",
+    "artisan": "Code Artisan",
+    "guru": "Open Source Guru",
+    "master": "Tech Master",
+    "legend": "Code Legend"
   }
 }
